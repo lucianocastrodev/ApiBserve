@@ -49,8 +49,8 @@ builder.Services
         // Descomente apenas se for testar em rede local sem HTTPS
         // ================================
         
-        //options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-        //options.Cookie.SameSite = SameSiteMode.Lax;
+       /* options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        options.Cookie.SameSite = SameSiteMode.Lax;*/
         
 
         options.Events.OnRedirectToLogin = context =>
