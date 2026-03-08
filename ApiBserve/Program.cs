@@ -40,8 +40,8 @@ builder.Services
         // 🔐 PRODUÇÃO (HTTPS - RECOMENDADO)
         // ================================
         // Só envia cookie via HTTPS
-        /*options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        options.Cookie.SameSite = SameSiteMode.None;*/
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        options.Cookie.SameSite = SameSiteMode.None;
 
 
         // ================================
@@ -49,8 +49,8 @@ builder.Services
         // Descomente apenas se for testar em rede local sem HTTPS
         // ================================
         
-        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-        options.Cookie.SameSite = SameSiteMode.Lax;
+        //options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        //options.Cookie.SameSite = SameSiteMode.Lax;
         
 
         options.Events.OnRedirectToLogin = context =>
