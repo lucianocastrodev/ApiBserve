@@ -1,4 +1,5 @@
 using ApiBserve.Data;
+using ApiBserve.Hubs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,9 @@ builder.Services.AddControllers();
 // Repositórios
 builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddScoped<ProdutoRepository>();
+
+// SignalR
+builder.Services.AddSignalR();
 
 // CORS — essencial para Blazor WASM + cookies
 builder.Services.AddCors(options =>
@@ -73,11 +77,15 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Pipeline
-app.UseCors("AllowBlazor"); // 🔹 CORS primeiro
+
 app.UseHttpsRedirection();
+app.UseCors("AllowBlazor"); // 🔹 CORS
 
 app.UseAuthentication();    // 🔹 Depois autentica
 app.UseAuthorization();     // 🔹 Depois autoriza
 
 app.MapControllers();
+
+app.MapHub<ProdutosHub>("/hub/produtos").RequireCors("AllowBlazor");
+
 app.Run();
