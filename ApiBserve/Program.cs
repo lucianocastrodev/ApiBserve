@@ -20,7 +20,8 @@ builder.Services.AddCors(options =>
                 "https://localhost:7153",
                 "https://192.168.1.115:7153",
                 "http://192.168.1.115:5263",
-                "http://localhost:5263"
+                "http://localhost:5263",
+                "https://bserve-frontend-svyius-9ed232-187-77-60-115.traefik.me/auth"
                 ) // URL do seu Blazor
                   .AllowAnyHeader()
                   .AllowAnyMethod()
